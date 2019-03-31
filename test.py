@@ -23,11 +23,16 @@ def generateOTP() :
 
 # Create instance of FieldStorage 
 form = cgi.FieldStorage() 
+OTP = 0
 
 # Get data from fields
 first_name = form.getvalue('first_name')
 last_name  = form.getvalue('last_name')
-receiver = form.getvalue('username') 
+receiver = form.getvalue('username')
+number = form.getvalue('mobile')  
+
+print("</body>")
+print("</html>")
 print("<html>")
 print("<head>")
 print("</head>")
@@ -44,17 +49,19 @@ s.starttls()
   
 # Authentication 
 s.login(sender, password) 
-  
-# message to be sent 
-message = 'Here is your OTP ' + generateOTP() + '.';
+ 
+# message to be sent
+OTP = generateOTP() 
+message = 'Here is your OTP ' + OTP + '.';
   
 # sending the mail 
 s.sendmail(sender,receiver, message) 
   
 # terminating the session 
-s.quit() 	
+s.quit()
+print("<p>OTP has been sent to your mail</p>")
+print('<a href = "verify.html"> <input type="Button" value = " Verify"></a>') 
 
-print("<p>OTP has been sent to your mail please verify</p> ")
-print("</body>")
-print("</html>")	  
-print('Location : index.html')
+f = open("OTP.txt","w")
+f.write(OTP)
+f.close()

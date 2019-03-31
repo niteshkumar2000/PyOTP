@@ -68,7 +68,7 @@
 <body>
 	<h1>Register Here</h1>
 	<div id="form">
-	<form action = "test.py" method = "post">
+	<form action = "test.py" method = "get">
 		First Name: <br>
 		
 		<input type = "text" name = "first_name" required>  <br><br>
@@ -79,9 +79,9 @@
 
 		Verify OTP By : <br><br>
 		
-		<input type="radio" name="OTP" onclick="Gmail()">Gmail &nbsp;&nbsp;&nbsp; 
+		<input type="radio" name="OTP" onclick="Gmail()" value="Gmail">Gmail &nbsp;&nbsp;&nbsp; 
 		
-		<input type="radio" name="OTP" onclick="Mobile()">Mobile Number <br><br>
+		<input type="radio" name="OTP" onclick="Mobile()" value="Mobile">Mobile Number <br><br>
 
 		<div id = "Verify_Gmail" style="display: none;">
 				Username : <br>
@@ -90,7 +90,7 @@
 		
 		<div id = "Verify_Mobile" style="display: none;">
 				Mobile Number : <br> 
-				<input type="text" name="mobile_number" pattern="[7-9]{1}[0-9]{9}"><br><br>
+				<input type="text" name="mobile" pattern="[7-9]{1}[0-9]{9}"><br><br>
 		</div>
 		
 		<script type="text/javascript">
