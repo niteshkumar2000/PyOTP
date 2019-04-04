@@ -47,7 +47,7 @@ if option == 'Gmail':
 	
 	sender = 'pycoders2432@gmail.com';
 	password = 'pyotp2432'  
-	OTP = '1055'
+
 	# creating SMTP session 
 	s = smtplib.SMTP('smtp.gmail.com', 587) 
 	# start TLS for security 
