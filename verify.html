@@ -39,15 +39,43 @@
 			text-align: center;
 		}
 	</style>
+	<script>
+		var s = 5
+		function startTime() {
+		  document.getElementById("myP").style.visibility = "hidden";
+		  if(s > 0){
+		  	s = s-1
+		  	s = checkTime(s);
+		  	document.getElementById('txt').innerHTML =
+		  	"Resend in " + s + " seconds";
+		  	var t = setTimeout(startTime, 500);
+		  }else{
+		  	document.getElementById('txt').innerHTML =
+		  	"Resend in 0 seconds";
+		  	document.getElementById("text").disabled = true;
+		  	alert("OTP Expired");
+		  	document.getElementById("button").style.visibility = "hidden";
+		  	document.getElementById("myP").style.visibility = "visible";
+		  }
+		}
+		function checkTime(i) {
+		  if (i < 10 && i > 0) {i = "0" + i};  // add zero in front of numbers < 10
+		  return i;
+		}
+</script>
 </head>
-<body>
+<body onload="startTime()">
 	<h1> Verify the OTP</h1>
 	<div id="form"> 
 	<form action=1.py method="get">
 		OTP : <br>
-		<input type="text" name="otp" maxlength="4" pattern="[0-9]{4}" autocomplete="off">
+		<input type="text" id = "text" name="otp" maxlength="4" pattern="[0-9]{4}" autocomplete="off">
 		<br><br>
-		<input type="submit" name="" value="Submit">
+		<input type="submit" id = "button" name="" value="Submit">&nbsp;<p id="txt"></p>
+	</form>
+	<form action="#" method="get">
+		<br>
+		<input type="submit" id = "myP" name="" value="Resend">
 	</form>
 	</div>
 </body>

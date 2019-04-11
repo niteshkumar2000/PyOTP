@@ -66,6 +66,9 @@ if option == 'Gmail':
 	s.quit()
 	print("<p>OTP has been sent to your mail</p>")
 	print('<a href = "verify.html"> <input type="Button" value = " Verify"></a>') 
+	f1 = open("user.txt","w")
+	f1.write(first_name + " ")
+	f1.write(receiver + " ")
 
 elif option == 'Mobile':	
 	print("<h2>Hello %s %s</h2>" % (first_name, last_name))
@@ -83,7 +86,11 @@ elif option == 'Mobile':
 	  body='Here is your OTP ' + OTP + '.')
 	print("<p>OTP has been sent to your mobile</p>")
 	print('<a href = "verify.html"> <input type="Button" value = " Verify"></a>') 
+	f1 = open("user.txt","w")
+	f1.write(first_name + " ")
+	f1.write(number)
 
 f = open("OTP.txt","w")
 f.write(OTP)
 f.close()
+f1.close() 
