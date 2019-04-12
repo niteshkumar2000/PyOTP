@@ -28,8 +28,8 @@ OTP = 0
 f = open("user.txt","r")
 data = (f.read()).split(' ') 
 first_name = data[0]
-receiver = data[1]
-number = data[1]  
+receiver = data[2]
+number = data[2]  
 f.close()
 #get OTP
 OTP = generateOTP() 

@@ -20,15 +20,15 @@ A_OTP = f.read()
 
 if A_OTP == E_OTP:
 	print('<p>OTP Verified</p>')
-	print('<a href = "index.html"> <button>Home</button> </a>')
+	print('<a href = "login.html"> <button>Home</button> </a>')
 
 	f1 = open("user.txt","r")
 	data = (f1.read()).split(' ')
 
-	if data[1].isdigit():
-		c.execute("INSERT INTO user(Name,Phone) values(%s,%s)",(data[0],data[1]))
+	if data[2].isdigit():
+		c.execute("INSERT INTO user(Name,Passowrd,Phone) values(%s,%s,%s)",(data[0],data[1],data[2]))
 	else:
-		c.execute("INSERT INTO user(Name,Mail) values(%s,%s)",(data[0],data[1]))
+		c.execute("INSERT INTO user(Name,Password,Mail) values(%s,%s,%s)",(data[0],data[1],data[2]))
 	db_connection.commit()
 	print("<p> DATA ENTRY DONE</p>")
 else:
